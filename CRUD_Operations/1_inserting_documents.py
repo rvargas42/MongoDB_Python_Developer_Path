@@ -24,7 +24,19 @@ result = collection.insert_one(new_account)
 document_id = result.inserted_id
 print(document_id)
 
+
+#insert many
+new_accounts = [
+    {"account_holder": "mongol", "account_id": "MGDB523","balance": 5000000, "last_updated": datetime.datetime.now(datetime.UTC)},
+    {"account_holder": "mongo_a","account_id": "MGDB143","balance": 5000000, "last_updated": datetime.datetime.now(datetime.UTC)},
+]
+
+result = collection.insert_many(new_accounts)
+print(result.inserted_ids)
+
 client.close()
+
+
 
 
 
